@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
-import ReactDOM from "react-dom";
 import MUIDataTable from "mui-datatables";
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
-import { FormControlLabel, TextField } from '@material-ui/core';
+import { FormControlLabel } from '@material-ui/core';
 
 import stuff from './stuff.json';
-
-
 
 class SortyTable extends Component {
 
@@ -54,7 +51,7 @@ class SortyTable extends Component {
 	const JSONdata = stuff;
 	const JSONcolumns = [
 	{
-		name: "Name",
+		name: "item",
 		label: "Name of Item",
 		options: {
 		   filter: false,
@@ -72,8 +69,8 @@ class SortyTable extends Component {
   		}
 	},
 	{
-		name: "BaseSellPrice",
-		label: "Price",
+		name: "price",
+		label: "Size",
 		options: {
 		   filter: true,
 		   sort: true,
@@ -88,7 +85,7 @@ class SortyTable extends Component {
   		}
 	},
 	{
-		name: "Type",
+		name: "category",
 		label: "Type",
 		options: {
 		   filter: true,
@@ -118,7 +115,7 @@ class SortyTable extends Component {
 		return(
 			<MuiThemeProvider theme={this.getMuiTheme()}>
 				<MUIDataTable
-				  title={"Store Inventory"}
+				  title={"Store Inventory (Click 🔍 or 🥞 to Search ➡️)"}
 				  data={JSONdata}
 				  columns={JSONcolumns}
 				  options={JSONoptions}
